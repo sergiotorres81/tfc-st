@@ -5,8 +5,7 @@ package client;
  *
  */
 public class Time {
-	private long tiempoInicial;
-	private long tiempoTotal;
+	private long startTime;
 	public Time() {
 		super();
 	}
@@ -15,14 +14,13 @@ public class Time {
 	 * @return Instante de tiempo actual
 	 */
 	public long startCount(){
-		return this.tiempoInicial = System.currentTimeMillis();
+		return this.startTime = System.currentTimeMillis();
 	}
 	/**
 	 * Finaliza la cuenta de tiempo
 	 * @return Diferencia de tiempo desde que se invocó a startCount
 	 */
 	public long finalTime(){
-		this.tiempoTotal = System.currentTimeMillis() - tiempoInicial;
-		return this.tiempoTotal;
+		return (System.currentTimeMillis() - startTime);
 	}
 }

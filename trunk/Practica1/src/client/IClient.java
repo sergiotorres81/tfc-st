@@ -4,7 +4,7 @@ package client;
  * @author Sergio Torres 
  *
  */
-public interface ICliente {
+public interface IClient {
 	/**
 	 * Establece una conexion entre el cliente y el servidor
 	 * @param host Máquina donde está el servidor
