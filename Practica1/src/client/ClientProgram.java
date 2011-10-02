@@ -8,7 +8,7 @@ import java.util.Random;
  * @author Sergio Torres
  *
  */
-public class Client {
+public class ClientProgram {
 	/**
 	 * @param args 
 	 * 		args[0] --> host donde está el servidor

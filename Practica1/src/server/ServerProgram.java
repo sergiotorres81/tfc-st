@@ -4,7 +4,7 @@ package server;
  * @author Sergio Torres
  *
  */
-public class Server {
+public class ServerProgram {
 	/**
 	 * @param args args[0] Tipo de servidor:	1--> TCP
 	 * 											2--> TCP multi-thread
