@@ -3,11 +3,11 @@ package commons;
 
 /**
  * Contiene la interfaz de la clase ObjetoA.
- * Esta interfaz deberás ser implementada por las clases stub y servidora
+ * Esta interfaz deberá ser implementada por las clases stub(cliente) y skeleton(server)
  * @author Sergio Torres
  *
  */
-public interface IClaseA {
+public interface ILinker {
 	/**
 	 * Se asocia un valor entero a una cadena.
 	 * En caso de que la cadena ya tenga asociado un valor, asocia la cadena al nuevo valor.

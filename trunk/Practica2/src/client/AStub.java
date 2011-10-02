@@ -4,11 +4,11 @@ import java.net.Socket;
 import commons.*;
 
 /**
- * Stub que implementa en el lado del cliente las operaciones de objetos de claseA
+ * Stub abstracto que provee las operaciones básicas para conectar con el servicio
  * @author Sergio Torres
  *
  */
-public class StubA implements ILinker{
+abstract class AStub {
 	private String host= "localhost";
 	private int port = 8080;
 	private Socket so;
@@ -17,9 +17,6 @@ public class StubA implements ILinker{
 	protected int idObjeto = 0;
 	protected int idSkeleton = 0;
 	
-	public StubA(){
-		super();
-	}
 	/**
 	 * Constructor para indicar dónde está el servidor, su puerto y los identificadores de objeto 
 	 * en el server.
@@ -28,36 +25,11 @@ public class StubA implements ILinker{
 	 * @param idObjeto Identificador del objeto en el lado del servidor
 	 * @param idSkeleton Identificador del esqueleto en el lado del servidor
 	 */
-	public StubA(String host, int port, int idObjeto, int idSkeleton){
+	protected AStub(String host, int port, int idObjeto, int idSkeleton){
 		this.host = host;
 		this.port = port;
 		this.idObjeto = idObjeto;
 		this.idSkeleton = idSkeleton;
-	}
-	@Override
-	public void asociar(String key, int value) {
-		connect();
-		mar.putInt(idObjeto);	// Id. del objeto en el lado del servidor
-		mar.putInt(idSkeleton); // Id. del esqueleto en el lado del servidor
-		mar.putInt(1); 			// Asociar tiene asignado el id de operación 1
-		mar.putString(key);		// Dato 
-		mar.putInt(value);		// Dato
-		@SuppressWarnings("unused")
-		int fin = unmar.getInt();			// Recogemos el cierre de la conexión
-		disconnect();			// Desconectamos
-	}
-	@Override
-	public int obtener(String key) {
-		connect();
-		mar.putInt(idObjeto);
-		mar.putInt(idSkeleton);
-		mar.putInt(2);
-		mar.putString(key);
-		int res = unmar.getInt();
-		@SuppressWarnings("unused")
-		int fin = unmar.getInt();
-		disconnect();
-		return res;
 	}
 	/**
 	 * Crea el socket y lo asocia con el servidor
@@ -86,46 +58,46 @@ public class StubA implements ILinker{
 		}
 	}
 	
-	public String getHost() {
+	protected String getHost() {
 		return host;
 	}
-	public void setHost(String host) {
+	protected void setHost(String host) {
 		this.host = host;
 	}
-	public int getPort() {
+	protected int getPort() {
 		return port;
 	}
-	public void setPort(int port) {
+	protected void setPort(int port) {
 		this.port = port;
 	}
-	public Socket getSo() {
+	protected Socket getSo() {
 		return so;
 	}
-	public void setSo(Socket so) {
+	protected void setSo(Socket so) {
 		this.so = so;
 	}
-	public Marshall getMar() {
+	protected Marshall getMar() {
 		return mar;
 	}
-	public void setMar(Marshall mar) {
+	protected void setMar(Marshall mar) {
 		this.mar = mar;
 	}
-	public UnMarshall getUnmar() {
+	protected UnMarshall getUnmar() {
 		return unmar;
 	}
-	public void setUnmar(UnMarshall unmar) {
+	protected void setUnmar(UnMarshall unmar) {
 		this.unmar = unmar;
 	}
-	public int getIdObjeto() {
+	protected int getIdObjeto() {
 		return idObjeto;
 	}
-	public void setIdObjeto(int idObjeto) {
+	protected void setIdObjeto(int idObjeto) {
 		this.idObjeto = idObjeto;
 	}
-	public int getIdInterfaz() {
+	protected int getIdInterfaz() {
 		return idSkeleton;
 	}
-	public void setIdInterfaz(int idInterfaz) {
+	protected void setIdInterfaz(int idInterfaz) {
 		this.idSkeleton = idInterfaz;
 	}
 }

@@ -1,7 +1,7 @@
 package server;
 
 import java.util.Hashtable;
-import commons.IClaseA;
+import commons.ILinker;
 
 /**
  * Contiene la implementación de la interfaz IClaseA.
@@ -9,14 +9,12 @@ import commons.IClaseA;
  * @author Sergio Torres
  *
  */
-public class ClaseA implements IClaseA{
+public class ClaseA implements ILinker{
 	protected Hashtable  <String, Integer> ht = new Hashtable<String, Integer>();
-	@Override
 	public synchronized void asociar(String key, int value) {
 		ht.put(key, value);
 	}
 
-	@Override
 	public synchronized int obtener(String key) {
 		int aux = -1;
 		if (ht.containsKey(key)){
