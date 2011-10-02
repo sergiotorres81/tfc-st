@@ -25,15 +25,12 @@ public class ServerUDP implements IServer {
 			System.out.println(e.getMessage());
 		}
 	}
-	@Override
 	public void accept() {
 		// No es neceasario
 	}
-	@Override
 	public void close() {
 		// No es neceasario
 	}
-	@Override
 	public void handleByte() {
 		try {
 			socketComunicacion.receive(paquete);

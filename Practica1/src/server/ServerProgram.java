@@ -14,40 +14,37 @@ public class ServerProgram {
 	 * @author Sergio Torres Lozano
 	 */
 	public static void main(String[] args) {
-		IServer miServer = null;
+		IServer server = null;
 		try{ // Preparamos los parámetros necesarios para los servidores
-			int type = Integer.parseInt(args[0]);
-			int port = Integer.parseInt(args[1]);
-			int d = Integer.parseInt(args[2]);
+			int type = 1;
 			switch (type) {
 			case 1:
 				System.out.println("Servidor tipo --> TCP " );
-				miServer = new ServerTCP(port,d);
+				server = new ServerTCP();
 				break;
 			case 2:
 				System.out.println("Servidor tipo --> TCP multi-thread " );
-				miServer = new ServerMT(port,d);
+//				miServer = new ServerMT(port,d);
 				break;
 			case 3:
 				System.out.println("Servidor tipo --> UDP " );
-				miServer = new ServerUDP(port, d);				
+//				miServer = new ServerUDP(port, d);				
 				break;
 			default:
 				System.out.println("No existe el tipo de servidor que desea: ");
 				System.out.println("1--> TCP ");
 				System.out.println("2--> TCP multi-thread ");
 				System.out.println("3--> UDP");
-				System.exit(1);
 				break;
 			}			
 		}catch (Exception e) {
 			System.out.println("use: java server.Server  servertype  port  delay");
-			System.exit(2);
+			System.exit(1);
 		}
 		while (true) {
-			miServer.accept(); 		// El servidor acepta una petición
-			miServer.handleByte();	// El servidor trata una petición
-			miServer.close();		// El servidor cierra la conexión
+			server.accept(); 		// El servidor acepta una petición
+			server.handleByte();	// El servidor trata una petición
+			server.close();		// El servidor cierra la conexión
 		}
 	}
 }

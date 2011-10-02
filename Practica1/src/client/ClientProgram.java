@@ -24,7 +24,7 @@ public class ClientProgram {
 		int info = generator.nextInt(99)+1; // Esto genera un aleatorio entre 1 y 100
 		int type = 1; 
 		String host = "localhost";
-		int MAXLOOP = 1000;
+		int MAXLOOP = 10;
 		Time miTime = new Time();
 		try{
 			host = args[0];
@@ -39,7 +39,7 @@ public class ClientProgram {
 			System.out.println("MAXLOOP: Número de solicitudes que se harán al servidor");
 			System.exit(1);
 		}
-		IClient myClient = null; // Se inicializa la variable
+		IClient myClient = null; // Se declara el cliente
 		switch (type) { // Instanciamos el tipo de cliente adecuado
 		case 1:
 			myClient = new ClientTCP(host, port);
