@@ -18,7 +18,7 @@ public class ClientA {
 		int idSkeleton = 1;
 		String host = "localhost";
 		// Creamos nuestro objetoA.
-		IClaseA objetoA = new StubA(host,port,idObjeto,idSkeleton); 
+		ILinker objetoA = new StubA(host,port,idObjeto,idSkeleton); 
 		// Para leer la opción del usuario
 		int option = -1;
 		// Para recoger los valores

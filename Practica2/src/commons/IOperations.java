@@ -5,7 +5,7 @@ package commons;
  * @author Sergio Torres
  *
  */
-public interface IClaseB extends IClaseA{
+public interface IOperations extends ILinker{
 	/**
 	 * Se devuelve la suma de los enteros asociados a las dos cadenas pasadas como argumentos
 	 * @param op1 Primer sumando

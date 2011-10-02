@@ -22,7 +22,7 @@ public class ClientB {
 		int port = 8080;
 		String host = "localhost";
 		// Creamos nuestro objetoA.
-		IClaseB stb = new StubB(host,port,idObjeto,idSkeleton);
+		IOperations stb = new StubB(host,port,idObjeto,idSkeleton);
 		// Para leer la opción del usuario
 		int option = -1;		
 		InputStreamReader isr = new InputStreamReader(System.in);

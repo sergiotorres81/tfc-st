@@ -7,14 +7,13 @@ import commons.*;
  * @author Sergio Torres
  *
  */
-public class StubB extends StubA implements IClaseB{
+public class StubB extends StubA implements IOperations{
 	public StubB(){
 		super();
 	}
 	public StubB(String host,int port, int idObjeto, int idSkeleton){
 		super(host,port,idObjeto,idSkeleton);
 	}
-	@Override
 	public int resta(String op1, String op2) {
 		connect();
 		mar.putInt(idObjeto);
@@ -26,7 +25,6 @@ public class StubB extends StubA implements IClaseB{
 		disconnect();		
 		return res;		
 	}
-	@Override
 	public int suma(String op1, String op2) {
 		connect();
 		mar.putInt(idObjeto);
