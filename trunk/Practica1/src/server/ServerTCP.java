@@ -14,8 +14,24 @@ public class ServerTCP implements IServer{
 	private Socket socketComunicacion;
 	private InputStream inputChannel;
 	private OutputStream outputChannel;
-	private int port = 8080;
-	private int delay = 0;
+	private Integer port = 8080;
+	private Integer delay = 0;
+	private ResourceManager resourceManager;
+	
+	public ServerTCP(){
+		try{
+			resourceManager = new ResourceManager();
+			port = new Integer(resourceManager.getResource(Constants.PORT));
+			delay = new Integer(resourceManager.getResource(Constants.DELAY));
+			try{
+				socketServidor = new ServerSocket(this.port);
+			}catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
+		}catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
 	/**
 	 * @param port puerto donde escucha el servidor
 	 * @param delay demora para simular el tratamiento de información por parte del cliente
@@ -30,7 +46,6 @@ public class ServerTCP implements IServer{
 			System.out.println(e.getMessage());
 		}
 	}
-	@Override
 	public synchronized void handleByte(){
 		try{
 			inputChannel = socketComunicacion.getInputStream();
@@ -44,7 +59,6 @@ public class ServerTCP implements IServer{
 			System.out.println(e.getMessage());
 		}
 	}
-	@Override
 	public synchronized void accept(){
 		try{
 			socketComunicacion = socketServidor.accept();			
@@ -52,7 +66,6 @@ public class ServerTCP implements IServer{
 			System.out.println(e.getMessage());
 		}
 	}
-	@Override
 	public synchronized void close(){
 		try{
 			socketComunicacion.close();

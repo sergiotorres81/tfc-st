@@ -19,7 +19,6 @@ public class ServerMT implements IServer{
 			System.out.println(e.getMessage());
 		}
 	}
-	@Override
 	public synchronized void accept() {
 		try{
 			socketComunicación = socketServidor.accept();
@@ -27,12 +26,10 @@ public class ServerMT implements IServer{
 			System.out.println(e.getMessage());
 		}
 	}
-	@Override
 	public void close() {
 		// No es necesaria. La comunicación es cerrada por cada thread
 		// de forma independiente
 	}
-	@Override
 	public synchronized void handleByte() {
 		new Thread(new Conection(socketComunicación, delay)).start();
 	}
