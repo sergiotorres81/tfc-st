@@ -8,7 +8,7 @@ import java.net.Socket;
  * @author Sergio Torres
  * 
  */
-public class ClientTCP implements ICliente{
+public class ClientTCP implements IClient{
 	private String host= "localhost";
 	private int port = 8080;
 	private Socket socketCliente;
@@ -20,31 +20,25 @@ public class ClientTCP implements ICliente{
 	 * @param port Puerto en el que escucha el servidor
 	 */
 	public ClientTCP(String host, int port) {
-		super();
 		this.host = host;
 		this.port = port;
 	}
-	@Override
 	public void connect(){
 		try {
 			socketCliente = new Socket(host, port);
 		} catch (Exception e) {
 			System.out.println("Error de conexión");
-			System.exit(3);
 		}
 	}
-	@Override
 	public void sendByte(int b){
 		try{
 			outputChannel = socketCliente.getOutputStream();
 			outputChannel.write(b);			
 		}catch (Exception e) {
 			System.out.println("Error en envío / recepción de datos");
-			System.exit(4);
 		}
 		System.out.println("Envío: " + b); // La información hay que obtenerla fuera del try / catch
 	}
-	@Override
 	public int receiveByte(){
 		int b = 0;
 		try{
@@ -52,18 +46,15 @@ public class ClientTCP implements ICliente{
 			b = inputChannel.read();			
 		}catch (Exception e) {
 			System.out.println("Error en envío / recepción de datos");
-			System.exit(4);
 		}
 		System.out.println("Recibo: " + b);
 		return b;
 	}
-	@Override
 	public void close(){
 		try{
 			this.socketCliente.close();
 		}catch (Exception e) {
 			System.out.println("Error de conexión");
-			System.exit(3);
 		}
 	}
 }

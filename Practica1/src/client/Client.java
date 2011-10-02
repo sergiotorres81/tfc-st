@@ -39,13 +39,13 @@ public class Client {
 			System.out.println("MAXLOOP: Número de solicitudes que se harán al servidor");
 			System.exit(1);
 		}
-		ICliente miCliente = null; // Se inicializa la variable
-		switch (type) { // Intanciamos el tipo de cliente adecuado
+		IClient myClient = null; // Se inicializa la variable
+		switch (type) { // Instanciamos el tipo de cliente adecuado
 		case 1:
-			miCliente = new ClientTCP(host, port);
+			myClient = new ClientTCP(host, port);
 			break;
 		case 2:
-			miCliente = new ClientUDP(host, port);			
+			myClient = new ClientUDP(host, port);			
 			break;
 		default:
 			System.out.println("No ha seleccionado un tipo de cliente válido: " );
@@ -56,10 +56,10 @@ public class Client {
 		}
 		long time = miTime.startCount(); // Inicia la cuenta de tiempo 		
 		for (int i = 0 ; i< MAXLOOP ; i++){
-			miCliente.connect();			// Se conecta con el servidor			
-			miCliente.sendByte(info); 		// Envía información al servidor	
-			info = miCliente.receiveByte();	// Recibe la información del servidor
-			miCliente.close();				// Cierra la conexión con el servidor
+			myClient.connect();			// Se conecta con el servidor			
+			myClient.sendByte(info); 		// Envía información al servidor	
+			info = myClient.receiveByte();	// Recibe la información del servidor
+			myClient.close();				// Cierra la conexión con el servidor
 		}
 		time = miTime.finalTime(); // Finaliza la cuenta de tiempo y muestra el resultado
 		System.out.println("Tiempo de ejecución: " + time + " milisegundos"); 

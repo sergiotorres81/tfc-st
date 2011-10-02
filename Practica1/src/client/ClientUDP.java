@@ -7,9 +7,9 @@ import java.net.InetAddress;
  * @author Sergio Torres
  * 
  */
-public class ClientUDP implements ICliente{
+public class ClientUDP implements IClient{
 	private int port = 8080;
-	private DatagramPacket paquete;
+	private DatagramPacket packet;
 	private DatagramSocket socketCliente;
 	private byte[] buffer = new byte[1];
 	private String host = "localhost";
@@ -22,30 +22,27 @@ public class ClientUDP implements ICliente{
 		this.host = host;
 		this.port = port; 
 	}
-	@Override
 	public int receiveByte() {
 		byte[] aux = null;
 		try{
-			this.socketCliente.receive(this.paquete);
-			aux = paquete.getData();
+			this.socketCliente.receive(this.packet);
+			aux = packet.getData();
 		}catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 		System.out.println("Recibo: " + aux[0]);
 		return (int) aux[0]; // Se recibe un byte y hay que hacer el cast a integer.
 	}
-	@Override
 	public void sendByte(int b) {
 		buffer[0] = (byte) b; // Hacemos un cast para pasar el integer a byte
 		try{			
-			paquete = new DatagramPacket(buffer,buffer.length,InetAddress.getByName(host),this.port);
-			socketCliente.send(paquete);
+			packet = new DatagramPacket(buffer,buffer.length,InetAddress.getByName(host),this.port);
+			socketCliente.send(packet);
 		}catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 		System.out.println("Envío: " + buffer[0]);
 	}
-	@Override
 	public void connect() {
 		try{
 			this.socketCliente = new DatagramSocket();
@@ -53,7 +50,6 @@ public class ClientUDP implements ICliente{
 			System.out.println(e.getMessage());
 		}
 	}
-	@Override
 	public void close() {
 		// No es necesario
 	}
