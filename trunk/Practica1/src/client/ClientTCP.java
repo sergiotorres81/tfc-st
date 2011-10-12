@@ -3,6 +3,8 @@ package client;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
+
+import utils.ResourceManager;
 /**
  * Implementación un cliente TCP
  * @author Sergio Torres
@@ -14,12 +16,21 @@ public class ClientTCP implements IClient{
 	private Socket socketCliente;
 	private InputStream inputChannel;
 	private OutputStream outputChannel;
+	private ResourceManager resourceManager;
+	
+	
+	public ClientTCP(String path) {
+		resourceManager = new ResourceManager(path);
+		port = new Integer(resourceManager.getResource("port"));
+		host =resourceManager.getResource("port");
+	}
 	/**
 	 * Constructor de la clase. Instancia el socket de comunicaciones con el servidor.
 	 * @param host Dirección donde está el servidor
 	 * @param port Puerto en el que escucha el servidor
 	 */
 	public ClientTCP(String host, int port) {
+		
 		this.host = host;
 		this.port = port;
 	}

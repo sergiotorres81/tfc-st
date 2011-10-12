@@ -1,4 +1,4 @@
-package client;
+package utils;
 /**
  * Clase para controlar las diferencias de tiempo entre dos momentos de ejecución
  * @author Sergio Torres

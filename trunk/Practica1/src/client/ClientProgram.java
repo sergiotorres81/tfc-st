@@ -2,6 +2,9 @@ package client;
 
 import java.util.Random;
 
+import utils.NetTypeProtocolEnum;
+import utils.Time;
+
 
 /**
  * Programa Cliente
@@ -9,28 +12,19 @@ import java.util.Random;
  *
  */
 public class ClientProgram {
-	/**
-	 * @param args 
-	 * 		args[0] --> host donde está el servidor
-	 * 		args[1] --> puerto donde escucha
-	 * 		args[2] --> tipo de client : 
-	 * 							1 --> tcp 
-	 * 							2 --> udp
-	 * 		args[3] --> Número de iteraciones que se van a realizar.
-	 */
+	
 	public static void main(String[] args) {
 		int port = 8080;
-		Random generator = new Random();	// Para generar el dato que se envía al servidor
-		int info = generator.nextInt(99)+1; // Esto genera un aleatorio entre 1 y 100
-		int type = 1; 
+		int info = new Random().nextInt(99)+1; // Esto genera un aleatorio entre 1 y 100
+		NetTypeProtocolEnum type = NetTypeProtocolEnum.TCP; 
 		String host = "localhost";
 		int MAXLOOP = 10;
 		Time miTime = new Time();
 		try{
-			host = args[0];
-			port = Integer.parseInt(args[1]);
-			type = Integer.parseInt(args[2]);
-			MAXLOOP = Integer.parseInt(args[3]);
+//			host = args[0];
+//			port = Integer.parseInt(args[1]);
+//			type = Integer.parseInt(args[2]);
+//			MAXLOOP = Integer.parseInt(args[3]);
 		}catch (Exception e) {
 			System.out.println("use: java client.Client host port clientType MAXLOOP");
 			System.out.println("host: Nombre del servidor");
@@ -41,16 +35,13 @@ public class ClientProgram {
 		}
 		IClient myClient = null; // Se declara el cliente
 		switch (type) { // Instanciamos el tipo de cliente adecuado
-		case 1:
-			myClient = new ClientTCP(host, port);
+		case TCP:
+			myClient = new ClientTCP("client.client");
 			break;
-		case 2:
+		case UDP:
 			myClient = new ClientUDP(host, port);			
 			break;
 		default:
-			System.out.println("No ha seleccionado un tipo de cliente válido: " );
-			System.out.println(" 1 --> Cliente TCP" );
-			System.out.println(" 2 --> Cliente UDP " );
 			System.exit(1);
 			break;
 		}
