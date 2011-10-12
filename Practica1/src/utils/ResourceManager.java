@@ -1,4 +1,4 @@
-package server;
+package utils;
 
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -7,7 +7,11 @@ public class ResourceManager {
 	private ResourceBundle resourceBundle;
 
 	public ResourceManager(){
-		resourceBundle = ResourceBundle.getBundle("server.server",new Locale("ES"));
+		resourceBundle = ResourceBundle.getBundle("server.server", new Locale("ES"));
+	}
+	
+	public ResourceManager(String bundlePath){
+		resourceBundle = ResourceBundle.getBundle(bundlePath, new Locale("ES"));
 	}
 	
 	/**
