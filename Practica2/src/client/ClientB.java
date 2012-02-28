@@ -49,7 +49,7 @@ public class ClientB {
 		    key = br.readLine();
 		    System.out.println("Introduzca el valor:");
 		    int value = Integer.parseInt(br.readLine());
-		    stb.asociar(key, value);
+		    stb.associate(key, value);
 		    System.out.println("Se ha asociado " + key + " al valor: "
 			    + value);
 		} catch (IOException e) {
@@ -78,7 +78,7 @@ public class ClientB {
 		    System.out.println("Introduzca el segundo sumando:");
 		    String op2;
 		    op2 = br.readLine();
-		    int add = stb.suma(op1, op2);
+		    int add = stb.add(op1, op2);
 		    System.out.println("La suma de: " + op1 + " y " + op2
 			    + " es--> " + add);
 		} catch (IOException e) {
@@ -94,7 +94,7 @@ public class ClientB {
 		    System.out.println("Introduzca el sustraendo:");
 		    String op2;
 		    op2 = br.readLine();
-		    int diff = stb.resta(op1, op2);
+		    int diff = stb.subtract(op1, op2);
 		    System.out.println("La resta de: " + op1 + " y " + op2
 			    + " es--> " + diff);
 		} catch (IOException e) {

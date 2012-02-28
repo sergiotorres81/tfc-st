@@ -18,7 +18,7 @@ public interface IOperations extends ILinker {
      *            Segundo sumando
      * @return suma de los parámetros
      */
-    public int suma(String op1, String op2);
+    public int add(String op1, String op2);
 
     /**
      * Se devuelve la diferencia entre los valores enteros asociados a las dos
@@ -30,5 +30,5 @@ public interface IOperations extends ILinker {
      *            Sustraendo
      * @return diferencia de los parámetros
      */
-    public int resta(String op1, String op2);
+    public int subtract(String op1, String op2);
 }

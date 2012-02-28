@@ -49,7 +49,7 @@ public class ClientA {
 		    System.out.println("Introduzca el valor:");
 		    int value = Integer.parseInt(br.readLine());
 		    myTime.startCount();
-		    objetoA.asociar(key, value);
+		    objetoA.associate(key, value);
 		    System.out.println("Tiempo en realizar la petición: "
 			    + myTime.finalTime());
 		    System.out.println("Se ha asociado " + key + " al valor: "

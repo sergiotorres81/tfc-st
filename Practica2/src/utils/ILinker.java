@@ -17,7 +17,7 @@ public interface ILinker {
      * @param value
      *            Valor que asociamos a la clave.
      */
-    public void asociar(String key, int value);
+    public void associate(String key, int value);
 
     /**
      * Se recibe el valor entero asociado a una cadena. Si la cadena no existe

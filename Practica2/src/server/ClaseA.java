@@ -14,7 +14,7 @@ import utils.ILinker;
 public class ClaseA implements ILinker {
     protected Hashtable<String, Integer> ht = new Hashtable<String, Integer>();
 
-    public synchronized void asociar(String key, int value) {
+    public synchronized void associate(String key, int value) {
 	ht.put(key, value);
     }
 
