@@ -8,7 +8,7 @@ import utils.UnMarshall;
 
 /**
  * Stub que implementa en el lado del cliente las operaciones de objetos de
- * claseA
+ * Linker
  * 
  * @author Sergio Torres
  * 
@@ -47,7 +47,7 @@ public class StubA implements ILinker {
     }
 
     @Override
-    public void asociar(String key, int value) {
+    public void associate(String key, int value) {
 	connect();
 	mar.putInt(idObjeto); // Id. del objeto en el lado del servidor
 	mar.putInt(idSkeleton); // Id. del esqueleto en el lado del servidor

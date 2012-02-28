@@ -20,7 +20,7 @@ public class SkeletonA implements Skeleton {
 	case 1:
 	    String key = unmar.getString();
 	    int value = unmar.getInt();
-	    obja.asociar(key, value);
+	    obja.associate(key, value);
 	    break;
 	case 2:
 	    String clave = unmar.getString();

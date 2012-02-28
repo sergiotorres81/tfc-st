@@ -25,7 +25,7 @@ public class SkeletonB implements Skeleton {
 	case 1:
 	    key = unmar.getString();
 	    int value = unmar.getInt();
-	    objb.asociar(key, value);
+	    objb.associate(key, value);
 	    break;
 	case 2:
 	    key = unmar.getString();
@@ -35,13 +35,13 @@ public class SkeletonB implements Skeleton {
 	case 3:
 	    op1 = unmar.getString();
 	    op2 = unmar.getString();
-	    res = objb.suma(op1, op2);
+	    res = objb.add(op1, op2);
 	    mar.putInt(res);
 	    break;
 	case 4:
 	    op1 = unmar.getString();
 	    op2 = unmar.getString();
-	    res = objb.resta(op1, op2);
+	    res = objb.subtract(op1, op2);
 	    mar.putInt(res);
 	    break;
 	default:

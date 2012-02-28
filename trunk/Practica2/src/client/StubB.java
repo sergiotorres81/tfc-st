@@ -18,7 +18,7 @@ public class StubB extends StubA implements IOperations {
 	super(host, port, idObjeto, idSkeleton);
     }
 
-    public int resta(String op1, String op2) {
+    public int subtract(String op1, String op2) {
 	connect();
 	mar.putInt(idObjeto);
 	mar.putInt(idSkeleton);
@@ -30,7 +30,7 @@ public class StubB extends StubA implements IOperations {
 	return res;
     }
 
-    public int suma(String op1, String op2) {
+    public int add(String op1, String op2) {
 	connect();
 	mar.putInt(idObjeto);
 	mar.putInt(idSkeleton);
