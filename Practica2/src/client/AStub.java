@@ -1,5 +1,4 @@
 package client;
-
 import java.net.Socket;
 
 import utils.Marshall;
@@ -13,14 +12,18 @@ import utils.UnMarshall;
  * 
  */
 abstract class AStub {
-    private String host = "localhost";
-    private int port = 8080;
-    private Socket so;
+    protected String host = "localhost";
+    protected int port = 8080;
+    protected Socket so;
     protected Marshall mar;
     protected UnMarshall unmar;
-    protected int idObjeto = 0;
-    protected int idSkeleton = 0;
+    protected int objectId = 0;
+    protected int skeletonId = 0;
 
+    public AStub(){
+    	
+    }
+    
     /**
      * Constructor para indicar dónde está el servidor, su puerto y los
      * identificadores de objeto en el server.
@@ -29,16 +32,16 @@ abstract class AStub {
      *            Máquina dónde está el servidor
      * @param port
      *            número de puerto dónde escucha
-     * @param idObjeto
+     * @param     protected AStub(String host, int port, int objectId
      *            Identificador del objeto en el lado del servidor
-     * @param idSkeleton
+     * @param skeletonId
      *            Identificador del esqueleto en el lado del servidor
      */
-    protected AStub(String host, int port, int idObjeto, int idSkeleton) {
+    protected AStub(String host, int port, int objectId, int skeletonId) {
 	this.host = host;
 	this.port = port;
-	this.idObjeto = idObjeto;
-	this.idSkeleton = idSkeleton;
+	this.objectId = objectId;
+	this.skeletonId = skeletonId;
     }
 
     /**
@@ -110,19 +113,21 @@ abstract class AStub {
 	this.unmar = unmar;
     }
 
-    protected int getIdObjeto() {
-	return idObjeto;
-    }
 
-    protected void setIdObjeto(int idObjeto) {
-	this.idObjeto = idObjeto;
-    }
+    public int getObjectId() {
+		return objectId;
+	}
 
-    protected int getIdInterfaz() {
-	return idSkeleton;
-    }
+	public void setObjectId(int objectId) {
+		this.objectId = objectId;
+	}
 
-    protected void setIdInterfaz(int idInterfaz) {
-	this.idSkeleton = idInterfaz;
-    }
+	public int getSkeletonId() {
+		return skeletonId;
+	}
+
+	public void setSkeletonId(int skeletonId) {
+		this.skeletonId = skeletonId;
+	}
+
 }
